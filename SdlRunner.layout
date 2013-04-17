@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="Background.cpp" open="0" top="0" tabpos="3">
+		<Cursor position="298" topLine="0" />
+	</File>
+	<File name="Background.h" open="0" top="0" tabpos="2">
+		<Cursor position="43" topLine="1" />
+	</File>
+	<File name="Enemy.cpp" open="0" top="0" tabpos="5">
+		<Cursor position="266" topLine="0" />
+	</File>
+	<File name="Enemy.h" open="0" top="0" tabpos="4">
+		<Cursor position="257" topLine="0" />
+	</File>
+	<File name="Player.cpp" open="0" top="0" tabpos="7">
+		<Cursor position="301" topLine="1" />
+	</File>
+	<File name="Player.h" open="0" top="0" tabpos="6">
+		<Cursor position="150" topLine="0" />
+	</File>
+	<File name="Timer.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="1398" topLine="0" />
+	</File>
+	<File name="main.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="358" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>
