@@ -3,7 +3,7 @@
 
 #include "SDL/SDL.h"
 #include "SDL/SDL_image.h"
-#include "SDL/SDL_ttf.h"
+
 #include <string>
 
 class Player
@@ -14,12 +14,12 @@ public:
     int velocity;
     int acceleration;
     int current_frame;
-    SDL_Surface *images[4];
+    SDL_Surface *images[15];
     SDL_Surface *screen;
 
     Player(SDL_Surface *screen);
     void logic();
-    void render();
+    void render(int cant);
     void jump();
     virtual ~Player();
 };

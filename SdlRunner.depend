@@ -1,85 +1,40 @@
 # depslib dependency file v1.0
-1366183343 source:/home/turupawn/Projects/CodeBlocks/SdlRunner/main.cpp
-	"SDL/SDL.h"
-	"SDL/SDL_image.h"
-	"SDL/SDL_ttf.h"
-	"Background.h"
-	"Player.h"
-	"Enemy.h"
-	<string>
-
-1366091833 source:/home/turupawn/Projects/CodeBlocks/SdlRunner/Character.cpp
-	"Character.h"
-
-1366091833 /home/turupawn/Projects/CodeBlocks/SdlRunner/Character.h
-
-1366097508 source:/home/turupawn/Projects/CodeBlocks/SdlRunner/Enemy.cpp
-	"Enemy.h"
-
-1366099294 /home/turupawn/Projects/CodeBlocks/SdlRunner/Enemy.h
-	"SDL/SDL.h"
-	"SDL/SDL_image.h"
-	"SDL/SDL_ttf.h"
-	<string>
-
-1366094277 source:/home/turupawn/Projects/CodeBlocks/SdlRunner/Background.cpp
+1366392483 source:c:\users\tecnocomp\documents\github\semana2\background.cpp
 	"Background.h"
 
-1366094032 /home/turupawn/Projects/CodeBlocks/SdlRunner/Background.h
+1366393424 c:\users\tecnocomp\documents\github\semana2\background.h
 	"SDL/SDL.h"
 	"SDL/SDL_image.h"
-	"SDL/SDL_ttf.h"
 	<string>
 
-1366183191 source:/home/turupawn/Projects/CodeBlocks/SdlRunner/Player.cpp
-	"Player.h"
-
-1366182651 /home/turupawn/Projects/CodeBlocks/SdlRunner/Player.h
-	"SDL/SDL.h"
-	"SDL/SDL_image.h"
-	"SDL/SDL_ttf.h"
-	<string>
-
-1366094277 source:/home/turupawn/Projects/CodeBlocks/Progra 3/Ejemplos/SdlRunner/Background.cpp
-	"Background.h"
-
-1366094032 /home/turupawn/Projects/CodeBlocks/Progra 3/Ejemplos/SdlRunner/Background.h
-	"SDL/SDL.h"
-	"SDL/SDL_image.h"
-	"SDL/SDL_ttf.h"
-	<string>
-
-1366192950 source:/home/turupawn/Projects/CodeBlocks/Progra 3/Ejemplos/SdlRunner/Enemy.cpp
+1366392483 source:c:\users\tecnocomp\documents\github\semana2\enemy.cpp
 	"Enemy.h"
 
-1366190372 /home/turupawn/Projects/CodeBlocks/Progra 3/Ejemplos/SdlRunner/Enemy.h
+1366393438 c:\users\tecnocomp\documents\github\semana2\enemy.h
 	"SDL/SDL.h"
 	"SDL/SDL_image.h"
-	"SDL/SDL_ttf.h"
 	<string>
 
-1366192872 source:/home/turupawn/Projects/CodeBlocks/Progra 3/Ejemplos/SdlRunner/Player.cpp
-	"Player.h"
-
-1366182651 /home/turupawn/Projects/CodeBlocks/Progra 3/Ejemplos/SdlRunner/Player.h
+1366760473 source:c:\users\tecnocomp\documents\github\semana2\main.cpp
 	"SDL/SDL.h"
 	"SDL/SDL_image.h"
-	"SDL/SDL_ttf.h"
-	<string>
-
-1366192753 source:/home/turupawn/Projects/CodeBlocks/Progra 3/Ejemplos/SdlRunner/main.cpp
-	"SDL/SDL.h"
-	"SDL/SDL_image.h"
-	"SDL/SDL_ttf.h"
 	"Background.h"
 	"Player.h"
 	"Enemy.h"
 	"Timer.h"
 	<string>
 
-1366189237 source:/home/turupawn/Projects/CodeBlocks/Progra 3/Ejemplos/SdlRunner/Timer.cpp
-	"Timer.h"
-
-1366189330 /home/turupawn/Projects/CodeBlocks/Progra 3/Ejemplos/SdlRunner/Timer.h
+1366437462 c:\users\tecnocomp\documents\github\semana2\player.h
 	"SDL/SDL.h"
+	"SDL/SDL_image.h"
+	<string>
+
+1366392483 c:\users\tecnocomp\documents\github\semana2\timer.h
+	"SDL/SDL.h"
+
+1366437434 source:c:\users\tecnocomp\documents\github\semana2\player.cpp
+	"Player.h"
+
+1366392483 source:c:\users\tecnocomp\documents\github\semana2\timer.cpp
+	"Timer.h"
 
