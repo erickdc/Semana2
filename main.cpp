@@ -11,6 +11,7 @@ and may not be redistributed without written permission.*/
 #include "Enemy.h"
 #include "Timer.h"
 #include <string>
+#include "Bomb.h"
 
 //Screen attributes
 const int SCREEN_WIDTH = 1000;
@@ -69,10 +70,10 @@ int main( int argc, char* args[] )
     Background background(screen);
     Player player(screen);
     Enemy enemy(screen);
-    Enemy enemy2(screen);
+    Bomb enemy2(screen);
     SDL_Event event;
     //Quit flag
-    enemy2.x=50;
+    enemy2.x=70;
 
     bool quit = false;
     while( quit == false )
@@ -166,16 +167,14 @@ int main( int argc, char* args[] )
         offset.x = 0;
         offset.y = 0;
 
-        do{
-        SDL_BlitSurface( images[current_frame], NULL, screen, &offset );
-        current_frame++;
-
-        }while(current_frame<4);
-        if(current_frame>4){
-
+       if(current_frame>4){
         SDL_BlitSurface( game_over, NULL, screen, &offset );
+    }else
+    {
+        SDL_BlitSurface( images[current_frame], NULL, screen, &offset );
+    }
+    current_frame++;
 
-        }
 
         frameCap();
 

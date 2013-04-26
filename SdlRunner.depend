@@ -7,7 +7,7 @@
 	"SDL/SDL_image.h"
 	<string>
 
-1366392483 source:c:\users\tecnocomp\documents\github\semana2\enemy.cpp
+1366930986 source:c:\users\tecnocomp\documents\github\semana2\enemy.cpp
 	"Enemy.h"
 
 1366393438 c:\users\tecnocomp\documents\github\semana2\enemy.h
@@ -15,7 +15,7 @@
 	"SDL/SDL_image.h"
 	<string>
 
-1366760473 source:c:\users\tecnocomp\documents\github\semana2\main.cpp
+1366932302 source:c:\users\tecnocomp\documents\github\semana2\main.cpp
 	"SDL/SDL.h"
 	"SDL/SDL_image.h"
 	"Background.h"
@@ -23,6 +23,7 @@
 	"Enemy.h"
 	"Timer.h"
 	<string>
+	"Bomb.h"
 
 1366437462 c:\users\tecnocomp\documents\github\semana2\player.h
 	"SDL/SDL.h"
@@ -37,4 +38,12 @@
 
 1366392483 source:c:\users\tecnocomp\documents\github\semana2\timer.cpp
 	"Timer.h"
+
+1366932218 source:c:\users\tecnocomp\documents\github\semana2\bomb.cpp
+	"Bomb.h"
+
+1366931142 c:\users\tecnocomp\documents\github\semana2\bomb.h
+	<string>
+	"SDL/SDL.h"
+	"SDL/SDL_image.h"
 
