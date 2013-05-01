@@ -7,7 +7,7 @@ Bomb::Bomb(SDL_Surface *screen)
     this->images[1] = IMG_Load( "assets/bomba02.png" );
     this->images[2] = IMG_Load( "assets/bomba03.png" );
     this->x = 900;
-    this->y = 350;
+    this->y = 370;
     this->acceleration=2;
     this->velocity=0;
     this->current_frame=0;
