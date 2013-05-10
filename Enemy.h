@@ -21,6 +21,7 @@ public:
     void logic();
     void render();
     void jump();
+    void backMenu();
     virtual ~Enemy();
 };
 

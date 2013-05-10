@@ -36,8 +36,14 @@
 		<Unit filename="Background.h" />
 		<Unit filename="Bomb.cpp" />
 		<Unit filename="Bomb.h" />
+		<Unit filename="Button.cpp" />
+		<Unit filename="Button.h" />
+		<Unit filename="ButtonSalir.cpp" />
+		<Unit filename="ButtonSalir.h" />
 		<Unit filename="Enemy.cpp" />
 		<Unit filename="Enemy.h" />
+		<Unit filename="Menu.cpp" />
+		<Unit filename="Menu.h" />
 		<Unit filename="Player.cpp" />
 		<Unit filename="Player.h" />
 		<Unit filename="Timer.cpp" />

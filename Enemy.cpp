@@ -46,3 +46,8 @@ void Enemy::render()
     if(current_frame>2)
         current_frame=0;
 }
+void Enemy::backMenu(){
+    this->x = 1000;
+    this->y = 400;
+    this->current_frame=0;
+}

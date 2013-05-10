@@ -11,11 +11,11 @@ and may not be redistributed without written permission.*/
 #include "Enemy.h"
 #include "Timer.h"
 #include <string>
-
-
+#include "Menu.h"
+#include "Button.h"
 #include "SDL/SDL_ttf.h"
 #include "SDL_audio.h"
-
+#include "ButtonSalir.h"
 #include <string>
 #include "Bomb.h"
 
@@ -23,11 +23,17 @@ and may not be redistributed without written permission.*/
 const int SCREEN_WIDTH = 1000;
 const int SCREEN_HEIGHT = 500;
 const int SCREEN_BPP = 32;
+
 int contadorMuertes=0;
 SDL_Surface *screen = NULL;
 Timer* update;
-bool isJumping=false;
+
 bool muerto=false;
+bool StartGame= false;
+bool quit = false;
+
+
+
 std::string toString(int number)
 {
     if (number == 0)
@@ -51,8 +57,9 @@ bool init()
     {
         return false;
     }
+
     //Initialize SDL_mixer
-    if( Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 ) == -1 )
+     if( Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 ) == -1 )
     {
         return false;
     }
@@ -90,15 +97,7 @@ int main( int argc, char* args[] )
     init();
     update=new Timer();
     update->start();
-    int current_frame=0;
-    SDL_Surface *images[5];
-    images[0] = IMG_Load( "assets/perder01.png" );
-    images[1] = IMG_Load( "assets/perder02.png" );
-    images[2] = IMG_Load( "assets/perder03.png" );
-    images[3] = IMG_Load( "assets/perder04.png" );
-    images[4]=  IMG_Load( "assets/perder05.png" );
 
-    SDL_Surface * game_over = IMG_Load( "game_over.png" );
 
     TTF_Font *font = TTF_OpenFont( "lazy.ttf", 30 );
     SDL_Color textColor = { 0, 0, 0 };
@@ -108,54 +107,48 @@ int main( int argc, char* args[] )
     SDL_Color textColor2 = { 255, 0, 0 };
     SDL_Surface * score_surface2 = NULL;
 
-    Mix_Chunk *jump = Mix_LoadWAV( "jump.ogg" );
-    Mix_Chunk *explosion = Mix_LoadWAV( "explosion.wav" );
     int score=0;
-    Mix_PlayChannel( -1, jump, 0 );
     Background background(screen);
+
+    Bomb enemy3(screen);
     Player player(screen);
-
+    Menu menu(screen);
+    Button Start(250,370,750,370,202,109,screen);
     Enemy enemy2(screen);
+    enemy2.x=600;
     SDL_Event event;
-    //Quit flag
 
 
-    bool quit = false;
-    while( quit == false )
+    quit=false;
+    while( quit== false )
     {
-        //If there's an event to handle
-        if( SDL_PollEvent( &event ) )
-        {
-            //If a key was pressed
-            if( event.type == SDL_KEYDOWN )
-            {
-                //Set the proper message surface
-                switch( event.key.keysym.sym )
-                {
-                    case SDLK_ESCAPE: quit = true; break;
-                    case SDLK_UP:
-                        isJumping=true;
-                        if(player.y==372){
 
-                          player.jump();
-                        Mix_PlayChannel( -1, jump, 0 );
-                        }
-                        break;
-                }
+        if(!Start.termino){
+            SDL_FillRect( screen, &screen->clip_rect, SDL_MapRGB( screen->format, 0xFF, 0xFF, 0xFF ) );
+            menu.logic();
+
+            Start.Controles();
+            menu.render();
+            if(menu.termino)
+            Start.render();
+            SDL_Flip(screen);
+        }else{
+            if(player.menu){
+               Start.termino=false;
+               player.backMenu();
+               enemy2.backMenu();
+               menu.backMenu();
+               Start.backMenu();
+                score=0;
             }
-            //If the user has Xed out the window
-            else if( event.type == SDL_QUIT )
-            {
-                //Quit the program
-                quit = true;
-            }
-        }
+        player.Controles();
 
         background.logic();
         player.logic();
-
+        menu.logic();
         enemy2.logic();
 
+        enemy3.logic();
         SDL_Rect offset;
         offset.x = 0;
         offset.y = 0;
@@ -165,53 +158,19 @@ int main( int argc, char* args[] )
 
         offset.x = 800;
         offset.y = 0;
-        SDL_Surface * score_surface2 = TTF_RenderText_Solid( font2, toString(contadorMuertes=contadorMuertes).c_str(), textColor2 );
+        SDL_Surface * score_surface2 = TTF_RenderText_Solid( font2, toString(player.contadorMuertes).c_str(), textColor2 );
         SDL_BlitSurface( score_surface2, NULL, screen, &offset );
 
         SDL_Flip( screen );
         SDL_FreeSurface( score_surface );
 
-        if(player.x-enemy2.x<50
-           && player.x-enemy2.x>-50
-           && player.y-enemy2.y<50
-           && player.y-enemy2.y>-50
-           )
-        {
 
-
-        offset.x = 0;
-        offset.y = 0;
-
-
-        do{
-        SDL_BlitSurface( images[current_frame], NULL, screen, &offset );
-
-         current_frame++;
-       }while(current_frame<4  && enemy2.x>(40+player.x));
-       if(current_frame>4){
-            current_frame=0;
-       }
-        SDL_Flip( screen );
-          muerto=true;
-        }
-        if(muerto && enemy2.x==player.x
-
-           ){
-            contadorMuertes+=1;
-            Mix_PlayChannel( -1, explosion, 0 );
-            muerto=false;
-        }
         background.render();
-        if(isJumping){
-        player.render(14);
-        if(player.velocity==0){
-            isJumping=false;
-        }
-        }else{
-        player.render(3);
-        }
-
+        player.render();
         enemy2.render();
+
+        enemy3.render();
+        player.playerDead(player.x,enemy3.x,player.y,enemy3.y,enemy2.x,enemy2.y);
         frameCap();
 
         //Update the screen
@@ -220,8 +179,14 @@ int main( int argc, char* args[] )
             return 1;
         }
 
-    }
+        }
 
+        if(player.quitProgram || Start.quitProgram ){
+            quit=true;
+        }
+
+
+}
     while( quit == false )
     {
         //If there's an event to handle
