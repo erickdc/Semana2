@@ -17,6 +17,7 @@ public:
     int current_frame2;
     int contadorMuertes;
     bool menu;
+    bool pintarse;
     SDL_Surface *images[10];
     SDL_Surface *screen;
     bool muere;

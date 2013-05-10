@@ -30,6 +30,7 @@ Player::Player(SDL_Surface *screen)
     this->muere = false;
     jumpSound = Mix_LoadWAV( "jump.ogg" );
     this->contadorMuertes=0;
+    this->pintarse=false;
 }
 
 Player::~Player()
@@ -115,9 +116,10 @@ void Player::playerDead(int playerx, int enemyx, int playery, int enemyy, int en
            && playery-enemy2y>-50
            )
         {
+        current_frame2=5;
+        pintarse=true;
 
-
-        offset.x = 0;
+     /*   offset.x = 0;
         offset.y = 0;
 
 
@@ -143,14 +145,14 @@ void Player::playerDead(int playerx, int enemyx, int playery, int enemyy, int en
 
 
         }
-
-
+*/
+}
 
 }
 void Player::render()
 {
 
-    if(!muere &&this->isJumping==false){
+    if(!pintarse &&this->isJumping==false){
 
 
     offset.x = x - images[current_frame]->w/2;
@@ -173,6 +175,19 @@ void Player::render()
             this->isJumping=false;
             current_frame=0;
 
+        }
+    }else if(pintarse){
+        offset.x = x - images[current_frame2]->w/2;
+        offset.y = y - images[current_frame2]->h/2;
+
+        SDL_BlitSurface( images[current_frame2], NULL, screen, &offset );
+        current_frame2++;
+        if(current_frame2>9){
+
+            current_frame=0;
+            contadorMuertes++;
+            pintarse =false;
+            Mix_PlayChannel( -1, explosion, 0 );
         }
     }
 

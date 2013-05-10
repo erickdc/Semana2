@@ -49,7 +49,7 @@
 1366392483 c:\users\tecnocomp\documents\github\semana2\timer.h
 	"SDL/SDL.h"
 
-1368139902 source:c:\users\tecnocomp\documents\github\semana2\main.cpp
+1368152854 source:c:\users\tecnocomp\documents\github\semana2\main.cpp
 	"SDL/SDL.h"
 	"SDL/SDL_image.h"
 	"SDL/SDL_mixer.h"
@@ -66,13 +66,13 @@
 	<string>
 	"Bomb.h"
 
-1368132079 c:\users\tecnocomp\documents\github\semana2\player.h
+1368150931 c:\users\tecnocomp\documents\github\semana2\player.h
 	"SDL/SDL.h"
 	"SDL/SDL_image.h"
 	"SDL/SDL_mixer.h"
 	<string>
 
-1368139723 source:c:\users\tecnocomp\documents\github\semana2\player.cpp
+1368153042 source:c:\users\tecnocomp\documents\github\semana2\player.cpp
 	"Player.h"
 
 1367969081 source:c:\users\tecnocomp\documents\github\semana2\buttonsalir.cpp

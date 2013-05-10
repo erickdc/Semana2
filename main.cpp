@@ -166,11 +166,12 @@ int main( int argc, char* args[] )
 
 
         background.render();
+         player.playerDead(player.x,enemy3.x,player.y,enemy3.y,enemy2.x,enemy2.y);
         player.render();
         enemy2.render();
 
         enemy3.render();
-        player.playerDead(player.x,enemy3.x,player.y,enemy3.y,enemy2.x,enemy2.y);
+
         frameCap();
 
         //Update the screen
